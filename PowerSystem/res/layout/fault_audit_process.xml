@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/bg">
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:background="@color/grey"
+		android:layout_height="wrap_content">
+		<Button
+			android:layout_width="wrap_content"
+			android:text="流转过程"
+			android:layout_height="32dp"
+			android:layout_weight="1"
+			android:textColor="#000"
+			android:textSize="20dp"
+			android:background="#fff"
+			android:gravity="center"
+			android:id="@+id/other"></Button>
+		<Button
+			android:id="@+id/audit"
+			android:layout_width="wrap_content"
+			android:text="专职审核"
+			android:layout_height="32dp"
+			android:layout_margin="0.5dip"
+			android:layout_weight="1"
+			android:background="#75CBE8"
+			android:textColor="#000"
+			android:textSize="20dp"
+			android:gravity="center"></Button>
+		<ImageButton
+			android:text="Button"
+			android:id="@+id/button1"
+			android:visibility="gone"
+			android:background="@drawable/tc"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></ImageButton>
+	</LinearLayout>
+	<ScrollView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:orientation="vertical">
+			<!-- 专职审核布局 -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:orientation="vertical"
+				android:id="@+id/table_audit">
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="抢修队伍名称:"
+						android:textColor="#f00" />
+					<Spinner
+						android:layout_height="wrap_content"
+						android:id="@+id/r_audit_spinner1"
+						android:layout_margin="0dp"
+						android:layout_weight="1"
+						android:layout_width="50dp" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:text="现场负责人:"
+						android:textColor="#000"
+						style="@style/audit_process"
+						android:layout_height="match_parent" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_audit_et1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="审核意见:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="同意"
+						android:minLines="3"
+						android:id="@+id/r_audit_et2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="概算价格 (元):"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:inputType="numberDecimal"
+						android:focusable="false"
+						android:id="@+id/r_audit_et3" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="#发生材料明细#:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="审核概算价格"
+						android:layout_weight="1"
+						android:background="#75CBE8"
+						android:textSize="16dp"
+						android:id="@+id/r_handle_btn1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="审核人:"
+						android:gravity="right"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_audit_et4" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="是否同意流程处理:"
+						android:textColor="#f00" />
+					<Spinner
+						android:layout_height="wrap_content"
+						android:layout_margin="0dp"
+						android:layout_width="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/r_audit_spinner2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="(注:选择'同意'提交到下一环节,'不同意'流程回退到上一环节)"
+						android:textSize="10dp"
+						android:textColor="#f00"
+						android:layout_span="2"
+						android:layout_column="0" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="45dp"
+						android:text="保存"
+						android:textSize="16dp"
+						android:id="@+id/r_audit_save"
+						android:background="#75CBE8" />
+				</LinearLayout>
+			</LinearLayout>
+			<!-- 主任批准布局 -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/table_approval"
+				android:stretchColumns="1"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="审批意见:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:text="同意"
+						android:id="@+id/r_approval_et1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="概算价格 (元):"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:inputType="numberDecimal"
+						android:focusable="false"
+						android:id="@+id/r_audit_et2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="#发生材料明细#:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="审核概算价格"
+						android:layout_weight="1"
+						android:background="#75CBE8"
+						android:textSize="16dp"
+						android:id="@+id/r_handle_btn1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="审批人:"
+						android:gravity="right"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_approval_et3" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="是否同意流程处理:"
+						android:textColor="#f00" />
+					<Spinner
+						android:layout_margin="0dp"
+						android:layout_width="wrap_content"
+						android:layout_weight="1"
+						android:layout_height="wrap_content"
+						android:id="@+id/r_approval_spinner1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="(注:选择'同意'提交到下一环节,'不同意'流程回退到上一环节)"
+						android:textSize="10dp"
+						android:textColor="#f00"
+						android:layout_span="2"
+						android:layout_column="0" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<Button
+						android:layout_width="fill_parent"
+						android:layout_height="45dp"
+						android:text="保存"
+						android:textSize="16dp"
+						android:id="@+id/r_approval_save"
+						android:background="#75CBE8" />
+				</LinearLayout>
+			</LinearLayout>
+			
+			
+			<!-- 不可见 -->
+			<!-- 缺陷处理布局 -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/table_handle"
+				android:visibility="gone"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="现场处理情况:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:id="@+id/r_handle_et1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="发生材料明细:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:id="@+id/r_handle_et2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="发生材料明细:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="录入发生材料"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:background="#75CBE8"
+						android:id="@+id/r_handle_btn1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="是否遗留问题:"
+						android:textColor="#f00" />
+					<Spinner
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/r_handle_spinner1"
+						android:layout_margin="0dp" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="处理日期:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_handle_et3" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="遗留问题描述:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:text="无"
+						android:id="@+id/r_handle_et4" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="消缺单位:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_handle_et5" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="消缺负责人:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_handle_et6" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="概算费用 (元):"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/r_handle_et7" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="发生材料明细:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="查看参考价格"
+						android:layout_weight="1"
+						android:background="#75CBE8"
+						android:textSize="16dp"
+						android:id="@+id/r_handle_btn2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="是否同意流程处理:"
+						android:textColor="#f00" />
+					<Spinner
+						android:layout_margin="0dp"
+						android:layout_width="wrap_content"
+						android:layout_weight="1"
+						android:layout_height="wrap_content"
+						android:id="@+id/r_handle_spinner2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="(注:选择'同意'提交到下一环节,'不同意'流程回退到上一环节)"
+						android:textSize="10dp"
+						android:textColor="#f00"/>
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:textColor="#000"
+						android:text="备注:" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:id="@+id/r_handle_et8" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="发生材料明细:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:layout_weight="1"
+						android:background="#75CBE8"
+						android:text="缺陷处理后拍照"
+						android:textSize="16dp"
+						android:id="@+id/btn_camera" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:textColor="#f00"
+						android:text="缺陷处理后照片:" />
+					<ImageView
+						android:layout_width="150dp"
+						android:layout_height="300dp"
+						android:id="@+id/r_handle_img_after"
+						android:layout_weight="1"
+						android:scaleType="fitXY"
+						android:visibility="gone" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent"
+					android:id="@+id/r_handle_show"
+					android:visibility="gone">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="点击图片可放大"
+						android:textSize="10dp"
+						android:textColor="#f00"
+						android:layout_column="0"
+						android:layout_span="1" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="删除"
+						android:background="#75CBE8"
+						android:textSize="16dp"
+						android:id="@+id/btn_del"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:gravity="center"
+						android:text="GPS定位:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_handle_et9" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:visibility="invisible"
+						android:text="发生材料明细:"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="保存"
+						android:textSize="16dp"
+						android:layout_weight="1"
+						android:id="@+id/r_handle_save"
+						android:background="#75CBE8" />
+				</LinearLayout>
+			</LinearLayout>
+			<!-- 缺陷验收布局 -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/table_acceptance"
+				android:visibility="gone"
+				android:orientation="vertical">
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="验收情况:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:id="@+id/r_acceptance_et1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="验收遗留问题描述:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:text="无"
+						android:id="@+id/r_acceptance_et2" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="是否通过验收:"
+						android:textColor="#f00" />
+					<Spinner
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/r_acceptance_spinner1"
+						android:layout_margin="0dp" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="验收日期:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_acceptance_et3" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="验收人:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/r_acceptance_et4" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:textColor="#000"
+						android:text="备注:" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:minLines="3"
+						android:id="@+id/r_acceptance_et5" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="发生材料明细:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="保存"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:id="@+id/r_acceptance_save"
+						android:background="#75CBE8" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

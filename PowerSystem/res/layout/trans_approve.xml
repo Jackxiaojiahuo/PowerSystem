@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#fff">
+
+	<!-- 变压器登录列表 -->
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="40dp"
+			android:text="变压器维修主任审批" 
+			android:textColor="#f00"
+			android:textSize="20sp"
+			android:gravity="center"
+			/>
+	</LinearLayout>
+	<!-- android:layout_span="2" 跨列 -->
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<TableLayout
+			android:id="@+id/TableLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@android:color/darker_gray"
+			android:stretchColumns="*">
+			<TableRow
+				android:layout_margin="0.5dip"
+				android:background="#dedcd2">
+				<TextView
+					style="@style/audit"
+					android:text="序号" />
+
+				<TextView
+					style="@style/audit"
+					android:text="维修属性">
+				</TextView>
+			</TableRow>
+		</TableLayout>
+	</ScrollView>
+
+</LinearLayout>

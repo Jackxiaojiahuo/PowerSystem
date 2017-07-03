@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/RelativeLayout1"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:background="@drawable/login"
+	android:padding="30dp" android:layout_height="match_parent" android:layout_width="match_parent">
+	<TextView
+		style="@style/TextViewComm"
+		android:text="用户名:"
+		android:id="@+id/textView1"
+		android:layout_marginLeft="64dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+		android:layout_marginTop="180dp"></TextView>
+	<EditText
+		android:layout_width="150dp"
+		android:layout_height="40dp"
+		android:id="@+id/editText1"
+		android:layout_marginTop="175dp"
+		android:layout_alignParentRight="true"
+		android:layout_toRightOf="@+id/textView1">
+	</EditText>
+	<TextView
+		style="@style/TextViewComm"
+		android:text="密    码:"
+		android:id="@+id/textView2"
+		android:layout_below="@+id/textView1"
+		android:layout_alignParentLeft="true"
+		android:layout_marginLeft="64dp"
+		android:layout_marginTop="28dp"></TextView>
+	<EditText
+		android:password="true"
+		android:layout_width="150dp"
+		android:layout_height="40dp"
+		android:id="@+id/editText2"
+		android:layout_alignParentRight="true"
+		android:layout_marginTop="18dp"
+		android:layout_below="@+id/editText1"
+		android:layout_toRightOf="@+id/textView2"
+		android:layout_alignLeft="@+id/editText1"></EditText>
+	<Button
+		android:text="登录系统"
+		android:textSize="18sp"
+		android:id="@+id/button1"
+		android:layout_marginTop="18dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/editText2"
+		android:layout_alignLeft="@+id/editText2"
+		android:onClick="doLogin"></Button>
+</RelativeLayout>

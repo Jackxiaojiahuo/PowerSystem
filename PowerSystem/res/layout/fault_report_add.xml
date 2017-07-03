@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@android:color/white">
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="故障抢修申请"
+		android:textColor="#fff"
+		android:background="#75CBE8"
+		android:textSize="25sp" />
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:id="@+id/TableLayout1"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:layout_height="wrap_content">
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:orientation="horizontal"
+				android:visibility="gone">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="故障编号:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_column="1"
+					android:focusable="false"
+					android:id="@+id/et1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="线路名称:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="50dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:hint="展开线路名称"
+					android:id="@+id/et2" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:visibility="gone"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="#线路名称#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="展开线路名称"
+					android:textSize="16dp"
+					android:layout_weight="1"
+					android:id="@+id/btn1"
+					android:background="#75CBE8"/>
+			</LinearLayout>
+			<!--
+			
+			改造
+			-->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="线路杆号:"
+					android:textColor="#f00" />
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:orientation="vertical">
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+						<EditText
+							android:layout_width="50dp"
+							android:layout_height="wrap_content"
+							android:inputType="number"
+							android:id="@+id/et3">
+						</EditText>
+						<Spinner
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:id="@+id/spinner1" />
+						<TextView
+							android:textSize="18sp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="一"
+							android:textColor="#000" />
+						<EditText
+							android:layout_width="50dp"
+							android:layout_height="wrap_content"
+							android:inputType="number"
+							android:id="@+id/et4">
+						</EditText>
+					</LinearLayout>
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+						<EditText
+							android:layout_width="50dp"
+							android:layout_height="wrap_content"
+							android:visibility="invisible"
+							android:inputType="number">
+						</EditText>
+						<Spinner
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:id="@+id/spinner2" />
+						<TextView
+							android:textSize="18sp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="二"
+							android:textColor="#000" />
+						<EditText
+							android:layout_width="50dp"
+							android:layout_height="wrap_content"
+							android:inputType="number"
+							android:id="@+id/et5">
+						</EditText>
+					</LinearLayout>
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+						<EditText
+							android:layout_width="50dp"
+							android:layout_height="wrap_content"
+							android:visibility="invisible"
+							android:inputType="number">
+						</EditText>
+						<Spinner
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:id="@+id/spinner3" />
+						<TextView
+							android:textSize="18sp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="三"
+							android:textColor="#000" />
+						<EditText
+							android:layout_width="50dp"
+							android:layout_height="wrap_content"
+							android:inputType="number"
+							android:id="@+id/et6">
+						</EditText>
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="线路杆号:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="50dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:id="@+id/etgh" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/ly_spinner">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="分支开关:"
+					android:textColor="#f00" />
+				<Spinner
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:prompt="@string/prompt"
+					android:id="@+id/spinner4" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:text="设备类型:"
+					android:textColor="#f00"
+					style="@style/audit_process"
+					android:layout_height="fill_parent" />
+				<Spinner
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:prompt="@string/prompt"
+					android:id="@+id/spinner5" 
+					android:layout_width="30dp"/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="设备编号:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:id="@+id/et7" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="抢修项目:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:id="@+id/et8" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="抢修日期:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et9" />
+			</LinearLayout>
+			
+			<!-- gone -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:visibility="gone">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="单位名称:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et_name" />
+			</LinearLayout>
+			<!-- /gone -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="抢修队伍名称:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et_name1" />
+			</LinearLayout>
+			
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="抢修详情及抢修情况:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:minLines="3"
+					android:id="@+id/et10" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="工程量:"
+					android:gravity="right"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:minLines="3"
+					android:id="@+id/et11" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="抢修发生材料明细:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:hint="录入发生材料"
+					android:minLines="3"
+					android:id="@+id/et12" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="录入发生材料"
+					android:textSize="16dp"
+					android:id="@+id/btn2"
+					android:background="#75CBE8"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="概算价格:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:hint="录入费用明细"
+					android:focusable="false"
+					android:id="@+id/et13" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="现场负责人:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et14" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="抢修前拍照"
+					android:textSize="16dp"
+					android:background="#75CBE8"
+					android:id="@+id/btn_camera"
+					android:layout_weight="1"/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:textColor="#f00"
+					android:text="抢修前照片:" />
+				<ImageView
+					android:layout_width="80dp"
+					android:layout_height="300dp"
+					android:visibility="gone"
+					android:scaleType="fitXY"
+					android:id="@+id/img_before"
+					android:layout_weight="1"/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/show"
+				android:visibility="gone">
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="点击图片可放大"
+					android:visibility="invisible"
+					android:textSize="10dp"
+					android:textColor="#f00"/>
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="删除"
+					android:background="#75CBE8"
+					android:textSize="16dp"
+					android:id="@+id/btn_del"
+					android:layout_weight="1"
+					/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="GPS定位:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et15" />
+			</LinearLayout>
+			<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="40dp"
+						style="@style/audit_process"
+						android:text="#发生材料明细#:"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:layout_weight="1"
+						android:background="#75CBE8"
+						android:text="抢修后拍照"
+						android:textSize="16dp"
+						android:id="@+id/btn_camera1" />
+				</LinearLayout>
+			<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:textColor="#f00"
+						android:text="抢修后照片:" />
+					<ImageView
+						android:layout_width="150dp"
+						android:layout_height="300dp"
+						android:id="@+id/img_after"
+						android:layout_weight="1"
+						android:scaleType="fitXY"
+						android:visibility="gone" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent"
+					android:id="@+id/show1"
+					android:visibility="gone">
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="点击图片可放大"
+						android:textSize="10dp"
+						android:visibility="invisible"
+						android:textColor="#f00" />
+					<Button
+						android:layout_width="wrap_content"
+						android:layout_height="45dp"
+						android:text="删除"
+						android:background="#75CBE8"
+						android:textSize="16dp"
+						android:id="@+id/btn_del1"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="GPS定位:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:id="@+id/et16" />
+				</LinearLayout>
+				<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="备注:"
+					android:gravity="right"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:minLines="3"
+					android:focusable="false"
+					android:id="@+id/et17" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="填写信息保存"
+					android:textSize="16dp"
+					android:id="@+id/btn_save"
+					android:background="#75CBE8"
+					android:layout_weight="1" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>

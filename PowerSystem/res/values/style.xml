@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--文本风格-->
+    <style name="TextViewComm">
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:textColor">#fff</item>
+    	<item name="android:layout_width">wrap_content</item>
+    	<item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--输入框风格-->
+    <style name="EditViewComm">
+    	<item name="android:textColor">#000</item>
+    </style>
+    <!--专职审核页面-->
+    <style name="audit">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:background">#75CBE8</item>
+    </style>
+    <!--流程弹出dialog界面-->
+    <style name="audit_process">
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_width">70dp</item>
+    </style>
+    <!-- obeya 样式 -->
+    <!-- tab选项卡字体样式 -->
+    <style name="item_tab_text_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <!-- 当文字长度超过textview宽度时的显示方式 -->
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!-- 表单字体样式 -->
+    <style name="form_text_style">
+        <item name="android:textSize">18sp</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+    </style>
+	<!-- 自定义弹窗样式 -->
+    <style name="dialogstyle">
+        <!-- 设置dialog的背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置Dialog的windowFrame框为无 -->
+        <!-- <item name="android:windowFrame">@null</item> -->
+        <!-- 设置无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 设置窗口内容不覆盖 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 设置动画，在这里使用让它继承系统的Animation.Dialog -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!-- 背景是否模糊显示 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!-- /obeya 样式 -->
+</resources>

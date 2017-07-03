@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white">
+	<ScrollView
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:id="@+id/sv">
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:orientation="vertical">
+			<!-- 录入缺陷内容布局 -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:stretchColumns="1" android:orientation="vertical">
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						android:text="录入缺陷内容"
+						android:layout_column="0"
+						android:layout_span="4"
+						android:textSize="20dp"
+						android:background="#75CBE8"
+						android:textColor="#fff" android:layout_width="match_parent"/>
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="设备项目:"
+						android:textColor="#f00" />
+					<Spinner
+						android:id="@+id/sp1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="缺陷内容:"
+						android:textColor="#f00" />
+					<Spinner
+						android:id="@+id/sp2"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="缺陷等级:"
+						android:textColor="#f00" />
+					<Spinner
+						android:id="@+id/sp3"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="总扣分:"
+						android:gravity="right"
+						android:textColor="#f00" />
+					<Spinner
+						android:id="@+id/sp4"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="缺陷分析:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:focusable="false"
+						android:minLines="3"
+						android:id="@+id/et1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<Button
+						android:layout_width="15dp"
+						android:layout_height="35dp"
+						android:text="新增缺陷"
+						android:textSize="14dp"
+						android:background="#75CBE8"
+						android:id="@+id/btn1"
+						android:layout_weight="1" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="15dp"
+					android:layout_width="fill_parent">
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<Button
+						android:layout_width="15dp"
+						android:layout_height="35dp"
+						android:text="缺陷内容保存"
+						android:textSize="14dp"
+						android:background="#75CBE8"
+						android:id="@+id/btn_save"
+						android:layout_weight="1" />
+				</LinearLayout>
+			</LinearLayout>
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:background="#000" />
+			<ListView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/defectcontent_list"></ListView>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

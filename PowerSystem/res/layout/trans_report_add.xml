@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@android:color/white">
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="变压器更换/迁移申请"
+		android:textColor="#fff"
+		android:background="#75CBE8"
+		android:textSize="25sp" />
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:id="@+id/TableLayout1"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:layout_height="wrap_content">
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:text="变压器维修属性:"
+					android:textColor="#f00"
+					style="@style/audit_process"
+					android:layout_height="fill_parent" />
+				<Spinner
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:prompt="@string/prompt"
+					android:id="@+id/spinner1"
+					android:layout_width="30dp" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="变压器工单:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:id="@+id/et1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="更换/迁移日期:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et2" />
+			</LinearLayout>
+
+			<!-- gone -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="单位名称:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et3" />
+			</LinearLayout>
+			<!-- /gone -->
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="队伍名称:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et4" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:orientation="vertical"
+				android:visibility="gone"
+				android:id="@+id/ly_replace">
+
+				<!-- 更换变压器显示项 -->
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="原变压器类型:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et5" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="原变压器名称:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et6" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="原变压器厂家:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et7" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="原变压器品牌:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et8" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="原变压器容量:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et9" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="原变压器序列号:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et10" />
+				</LinearLayout>
+
+
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="新变压器类型:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et11" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="新变压器名称:"
+						android:textColor="#f00" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et12" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="新变压器厂家:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et13" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="新变压器品牌:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et14" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="新变压器容量:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et15" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView
+						android:layout_height="fill_parent"
+						style="@style/audit_process"
+						android:text="新变压器序列号:"
+						android:textColor="#000" />
+					<EditText
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:id="@+id/et16" />
+				</LinearLayout>
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="工程量:"
+					android:gravity="right"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:minLines="3"
+					android:id="@+id/et17" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="更换迁移材料明细:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:hint="录入发生材料"
+					android:focusable="false"
+					android:minLines="3"
+					android:id="@+id/et18" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="录入发生材料"
+					android:textSize="16dp"
+					android:id="@+id/btn2"
+					android:background="#75CBE8"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="概算价格:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:hint="录入费用明细"
+					android:focusable="false"
+					android:id="@+id/et19" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:visibility="gone"
+				android:layout_height="wrap_content">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="录入费用明细"
+					android:textSize="16dp"
+					android:id="@+id/btn3"
+					android:background="#75CBE8"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="现场负责人:"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et20" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="实施前拍照"
+					android:textSize="16dp"
+					android:background="#75CBE8"
+					android:id="@+id/btn_camera"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:textColor="#f00"
+					android:text="实施前照片:" />
+				<ImageView
+					android:layout_width="80dp"
+					android:layout_height="300dp"
+					android:visibility="gone"
+					android:scaleType="fitXY"
+					android:id="@+id/img_before"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/show"
+				android:visibility="gone">
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="点击图片可放大"
+					android:visibility="invisible"
+					android:textSize="10dp"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="删除"
+					android:background="#75CBE8"
+					android:textSize="16dp"
+					android:id="@+id/btn_del"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="GPS定位:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et21" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#发生材料明细#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:layout_weight="1"
+					android:background="#75CBE8"
+					android:text="实施后拍照"
+					android:textSize="16dp"
+					android:id="@+id/btn_camera1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:textColor="#f00"
+					android:text="实施后照片:" />
+				<ImageView
+					android:layout_width="150dp"
+					android:layout_height="300dp"
+					android:id="@+id/img_after"
+					android:layout_weight="1"
+					android:scaleType="fitXY"
+					android:visibility="gone" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:id="@+id/show1"
+				android:visibility="gone">
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="点击图片可放大"
+					android:textSize="10dp"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="删除"
+					android:background="#75CBE8"
+					android:textSize="16dp"
+					android:id="@+id/btn_del1"
+					android:layout_weight="1" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="GPS定位:"
+					android:textColor="#f00" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:focusable="false"
+					android:id="@+id/et22" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="fill_parent"
+					style="@style/audit_process"
+					android:text="备注:"
+					android:gravity="right"
+					android:textColor="#000" />
+				<EditText
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:minLines="3"
+					android:id="@+id/et23" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView
+					android:layout_height="40dp"
+					style="@style/audit_process"
+					android:text="#缺陷内容#:"
+					android:visibility="invisible"
+					android:textColor="#f00" />
+				<Button
+					android:layout_width="wrap_content"
+					android:layout_height="45dp"
+					android:text="填写信息保存"
+					android:textSize="16dp"
+					android:id="@+id/btn_save"
+					android:background="#75CBE8"
+					android:layout_weight="1" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>

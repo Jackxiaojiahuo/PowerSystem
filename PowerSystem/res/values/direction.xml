@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="direction">
+        <item></item>
+        <item>东</item>
+        <item>南</item>
+        <item>西</item>
+        <item>北</item>
+    </string-array>
+
+</resources>

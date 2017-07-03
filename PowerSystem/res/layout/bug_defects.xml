@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#fff">
+
+	<!-- 缺陷登陆列表 -->
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<Button
+			android:id="@+id/addDefects"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:paddingLeft="20dp"
+			android:paddingRight="20dp"
+			android:layout_margin="5dp"
+			android:background="#75CBE8"
+			android:textColor="#fff"
+			android:text="新增" />
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_weight="1"
+			android:text="缺陷登录界面" 
+			android:textColor="#f00"
+			android:textSize="20sp"
+			android:gravity="center"
+			android:layout_gravity="center_horizontal"
+			/>
+	</LinearLayout>
+	<!-- android:layout_span="2" 跨列 -->
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<TableLayout
+			android:id="@+id/TableLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@android:color/darker_gray"
+			android:stretchColumns="*">
+			<TableRow
+				android:layout_margin="0.5dip"
+				android:background="#dedcd2">
+				<TextView
+					style="@style/audit"
+					android:text="线路名称" />
+				<TextView
+					style="@style/audit"
+					android:text="线路杆号" />
+				<TextView
+					style="@style/audit"
+					android:text="设备名称">
+				</TextView>
+			</TableRow>
+		</TableLayout>
+	</ScrollView>
+
+</LinearLayout>
