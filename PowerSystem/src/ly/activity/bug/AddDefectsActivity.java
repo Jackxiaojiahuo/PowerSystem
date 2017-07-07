@@ -350,9 +350,7 @@ public class AddDefectsActivity extends Activity implements OnClickListener {
 				// 缺陷内容
 				qxnr = json.getString("qxnr");
 				if (null != qxnr || !"".equals(qxnr)) {
-					StringBuffer qxnrStr = new StringBuffer(qxnr);
-					qxnrStr = qxnrStr.insert(qxnr.indexOf("。") + 1, "\n");
-					qxnr = qxnrStr.toString();
+					qxnr=qxnr.replaceAll("。", "。\n");
 				}
 				et10.setText(qxnr);
 				// 缺陷内容说明
@@ -393,7 +391,7 @@ public class AddDefectsActivity extends Activity implements OnClickListener {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(index == 10) {
+		} else if(index == 10) {//新增进入页面
 			str = addintent.getStringExtra("str");
 			str1 = addintent.getStringExtra("str1");
 			Log.i("121>>>>>>>>>>>>>>>", str);
@@ -407,6 +405,26 @@ public class AddDefectsActivity extends Activity implements OnClickListener {
 			JSONObject json = null;
 			try {
 				json = new JSONObject(t);
+				//分支开关
+				final List<String> list4 = new ArrayList<String>();
+				list4.add("是否带分支开关");
+				list4.add("带分支开关");
+				list4.add("不带分支开关");
+				ArrayAdapter<String> spinner4Adapter = new ArrayAdapter<String>(
+						getApplicationContext(), R.layout.item_spinner, R.id.text,
+						list4);
+				spinner4.setAdapter(spinner4Adapter);
+				spinner4.setOnItemSelectedListener(new OnItemSelectedListener() {
+					@Override
+					public void onItemSelected(AdapterView<?> arg0, View arg1,
+							int pos, long arg3) {
+						fzkg=list4.get(pos);
+					}
+					@Override
+					public void onNothingSelected(AdapterView<?> arg0) {
+						
+					}
+				});
 				// 设备类型
 				JSONArray ja = json.getJSONObject("sblx").getJSONArray(
 						"sblxList");
@@ -533,14 +551,16 @@ public class AddDefectsActivity extends Activity implements OnClickListener {
 							///qxlc/qxdl/lr_qx.jsp?sblx=柱上真空开关&ssdw=运维检修部&fjh=20170628019
 							Intent intent=new Intent(getApplicationContext(),DefectContent.class);
 							intent.putExtra("index", index);
-							num=t;
+							if("".equals(t)){
+								num=t;
+							}
 							String y=str;
 							y = y.substring(y.indexOf("<as>") + 4, y.lastIndexOf("</as>"));
 							intent.putExtra("id", y);
 							DefectContent.dwmc=dwmc;
 							DefectContent.sblx=sblx;
 							DefectContent.num=num;
-							startActivity(intent);
+							startActivityForResult(intent, 1);
 						}
 					}
 				}
@@ -990,7 +1010,7 @@ public class AddDefectsActivity extends Activity implements OnClickListener {
 		map.put("id", id);
 		map.put("dwmc", dwmc);
 		map.put("bzmc", bzmc);
-		map.put("qxhb", num);
+		map.put("qxbh", num);
 		map.put("sbmc", sblx);
 		map.put("sbbh", sbbh);
 		map.put("xlmc", linename);
@@ -1021,6 +1041,25 @@ public class AddDefectsActivity extends Activity implements OnClickListener {
 					String linename = reply.getString("lineName");// 取出Bundle中线路名称
 					int line_id = reply.getInt("lineId");// 取出线路id
 					lineName.setText(linename);
+				}
+			} else if(resultCode==99){
+				Bundle reply = data.getExtras();// 取出回传的Bundle
+				String t = reply.getString("str");
+				t = t.substring(t.indexOf("<sa>") + 4, t.lastIndexOf("</sa>"));
+				Log.i("缺陷内容回传字符串>>>>>>>>>>>>>>>", t);
+				t = t.replaceAll("(\r\n|\r|\n|\n\r)", " ");
+				JSONObject json = null;
+				try {
+					json = new JSONObject(t);
+					qxnr = json.getString("qxnr");
+					if (null != qxnr || !"".equals(qxnr)) {
+						StringBuffer qxnrStr = new StringBuffer(qxnr);
+						qxnrStr = qxnrStr.insert(qxnr.indexOf("。") + 1, "\n");
+						qxnr = qxnrStr.toString();
+					}
+					et10.setText(qxnr);
+				}catch(Exception e){
+					e.printStackTrace();
 				}
 			} else if (resultCode == Activity.RESULT_OK) {
 				String sdStatus = Environment.getExternalStorageState();

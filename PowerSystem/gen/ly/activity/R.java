@@ -356,6 +356,7 @@ public final class R {
         public static final int tv6=0x7f080082;
         public static final int tv7=0x7f0800a6;
         public static final int username=0x7f0800d0;
+        public static final int webview=0x7f0800dc;
     }
     public static final class layout {
         public static final int bigphoto=0x7f030000;
@@ -397,6 +398,7 @@ public final class R {
         public static final int trans_report=0x7f030024;
         public static final int trans_report_add=0x7f030025;
         public static final int tree_item=0x7f030026;
+        public static final int webview=0x7f030027;
     }
     public static final class string {
         public static final int activity=0x7f060017;

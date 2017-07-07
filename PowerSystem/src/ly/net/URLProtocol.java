@@ -9,7 +9,7 @@ public class URLProtocol {
 //	public static String ROOT = "http://192.168.8.211/ts_qxgl";
 //	public static String ROOT = "http://192.168.199.211/ts_qxgl";
 //	public static String ROOT = "http://192.168.1.110/ts_qxgl";
-	public static String ROOT = "http://192.168.0.101/ts_qxgl";
+	public static String ROOT = "http://192.168.1.103/ts_qxgl";
 	
 	/**登录*/
 	public static final int CMD_LOGIN = 0;

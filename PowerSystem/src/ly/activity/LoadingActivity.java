@@ -53,7 +53,7 @@ public class LoadingActivity extends Activity {
 								e.printStackTrace();
 							}
 							intent = new Intent(LoadingActivity.this,
-									LoginActivity.class);
+									WebActivity.class);
 							startActivity(intent);
 							Log.i("lei", "非自动登录，跳转到登录界面 LoadingActivity.this.finish()");
 //							ScreenUtil._progressDialog.dismiss();

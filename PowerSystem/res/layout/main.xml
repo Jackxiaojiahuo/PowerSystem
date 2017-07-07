@@ -11,6 +11,7 @@
 		android:id="@+id/textView1"
 		android:layout_marginLeft="64dp"
 		android:layout_alignParentTop="true"
+		android:onClick="doC"
 		android:layout_alignParentLeft="true"
 		android:layout_marginTop="180dp"></TextView>
 	<EditText

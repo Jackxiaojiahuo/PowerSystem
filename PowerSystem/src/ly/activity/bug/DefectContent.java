@@ -98,23 +98,24 @@ public class DefectContent extends Activity {
 				Bundle bundle = msg.getData();
 				String re = bundle.getString("re");
 				String str1 = "";
-				addIntent = new Intent(DefectContent.this,
-						AddDefectsActivity.class);
+				addIntent = new Intent();
+				Bundle reply = new Bundle();
 				if (!"0".equals(re)) {
 					String str = bundle.getString("str");
 					if (!"".equals(str)) {
 						if (msg.what == 1121) {
 							str1 = bundle.getString("str1");
 							byteArray = bundle.getByteArray("img1");// 图片信息
-							addIntent.putExtra("str", str);// 列表详细信息
 							addIntent.putExtra("str1", str1);// 线路
 							addIntent.putExtra("img1", byteArray);// 图片
 							addIntent.putExtra("index", 0);
+							reply.putString("str", str);// 列表详细信息
 						} 
-
+						addIntent.putExtras(reply);
 						// Log.i(">>>str",str);
 						// Log.i(">>>str1",str1);
-						startActivity(addIntent);
+						setResult(99,addIntent);
+//						startActivity(addIntent);
 						DefectContent.this.finish();
 					}
 				}
@@ -237,9 +238,9 @@ public class DefectContent extends Activity {
 
 	public void initsbxm(String str) {
 		String t = str;
-		Log.i("未截取字符串>>>>>>>>>>>>>>>", t);
+		Log.i("缺陷内容未截取字符串>>>>>>>>>>>>>>>", t);
 		t = t.substring(t.indexOf("<sa>") + 4, t.lastIndexOf("</sa>"));
-		Log.i("字符串>>>>>>>>>>>>>>>", t);
+		Log.i("缺陷内容字符串>>>>>>>>>>>>>>>", t);
 		t = t.replaceAll("(\r\n|\r|\n|\n\r)", " ");
 		JSONObject json = null;
 		try {
@@ -263,10 +264,11 @@ public class DefectContent extends Activity {
 			sp1.setSelection(selected, true);
 			sbxm = list1.get(selected);
 
+			//下方列表
 			list = new ArrayList<DefectContentModel>();
 			JSONArray l = json.getJSONArray("list");
 			if(l.length()>0){
-				Log.i(">>>>>>>>>>>>>123", l.getJSONObject(0).getString("XH"));
+				Log.i("缺陷内容列表长度>>>>>>>>>>>>>", l.length()+"");
 				for (int i = 0; i < l.length(); i++) {
 					dcm = new DefectContentModel();
 					dcm.setOne(l.getJSONObject(i).getString("dwmc"));

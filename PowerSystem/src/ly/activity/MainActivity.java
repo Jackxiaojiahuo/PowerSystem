@@ -36,10 +36,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 		et1 = (EditText) findViewById(R.id.editText1);
 		et2 = (EditText) findViewById(R.id.editText2);
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("yhm", "admin");
-		map.put("pas", "1234");
-		String str = HttpConnection.httpPost(URLProtocol.ROOT+URLProtocol.LOGIN, map, 0);// 获取连接返回值;
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("yhm", "admin");
+//		map.put("pas", "1234");
+//		String str = HttpConnection.httpPost(URLProtocol.ROOT+URLProtocol.LOGIN, map, 0);// 获取连接返回值;
+	}
+	public void doC(View v){
+		
 	}
 	public void doLogin(View v) {
 		String uname = et1.getText().toString().trim();
@@ -48,7 +51,7 @@ public class MainActivity extends Activity {
 			Toast.makeText(this, "用户名密码错误", 1).show();
 			return;
 		}
-		Intent intent = new Intent(MainActivity.this, HomeTabHost.class);
+		Intent intent = new Intent(MainActivity.this, WebActivity.class);
 		startActivity(intent);
 //		try {
 //			// 16f7216y28.iask.in
