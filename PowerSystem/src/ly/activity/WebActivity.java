@@ -47,6 +47,8 @@ public class WebActivity extends Activity {
 	private WebView webView;
 	private String imgname;
 	String res = "1";
+//	private final static String ROOTURL = "http://192.168.1.103/ts_qxgl";
+	private final static String ROOTURL = "http://192.168.0.104/ts_qxgl";
 	public static final String SDCARD_ROOT_PATH = android.os.Environment
 			.getExternalStorageDirectory().getAbsolutePath();// 路径
 	public static String SAVE_PATH_IN_SDCARD = "/bidata/"; // 图片及其他数据保存文件夹
@@ -70,9 +72,9 @@ public class WebActivity extends Activity {
 
 		// String url =
 		// "http://192.168.0.104/Test/public/login_in.jsp?yhm="+yhm+"&pas="+pas;
-//		String url = "http://192.168.1.103/ts_qxgl/public/login.jsp";
+		// String url = "http://192.168.1.103/ts_qxgl/public/login.jsp";
 		// String url = "http://192.168.199.213/ts_qxgl/public/login.jsp";
-		 String url = "http://192.168.0.101/ts_qxgl/public/login.jsp";
+		String url = ROOTURL + "/public/login.jsp";
 		webView.loadUrl(url);
 		webView.setWebViewClient(new WebViewClient() {
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -85,7 +87,7 @@ public class WebActivity extends Activity {
 
 		webView.clearCache(true);
 		webSettings.setDomStorageEnabled(true);
-		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); //关闭webview中缓存 
+		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 关闭webview中缓存
 		// 添加客户端支持
 		webView.setWebChromeClient(new WebChromeClient());
 	}
@@ -94,16 +96,19 @@ public class WebActivity extends Activity {
 	 * 使点击回退按钮不会直接退出整个应用程序而是返回上一个页面
 	 */
 	private long exitTime = 0;
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){ 
-			if((System.currentTimeMillis()-exitTime) > 2000){  
-	            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();                                
-	            exitTime = System.currentTimeMillis();   
-	        } else {
-	            finish();
-	            System.exit(0);
-	        }
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				Toast.makeText(getApplicationContext(), "再按一次退出程序",
+						Toast.LENGTH_SHORT).show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+				System.exit(0);
+			}
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);// 退出整个应用程序
@@ -123,16 +128,17 @@ public class WebActivity extends Activity {
 
 		// 在js中调用window.AndroidWebView.showInfoFromJs(name)，便会触发此方法。
 		public void showInfoFromJs(String name) {
-			if(name.indexOf(",")>0){
-				Toast.makeText(WebActivity.this, name, Toast.LENGTH_SHORT).show();
-				bh=name.substring(0,name.indexOf(","));
-				type=name.substring(name.indexOf(",")+1);
-				Log.i("页面传值", bh+","+type);
+			if (name.indexOf(",") > 0) {
+				Toast.makeText(WebActivity.this, name, Toast.LENGTH_SHORT)
+						.show();
+				bh = name.substring(0, name.indexOf(","));
+				type = name.substring(name.indexOf(",") + 1);
+				Log.i("页面传值", bh + "," + type);
 				Intent i = new Intent("android.media.action.IMAGE_CAPTURE");
 				startActivityForResult(i, 1);
 			}
-			webView.clearHistory ();
-//			webView.clearCache(true);
+			webView.clearHistory();
+			// webView.clearCache(true);
 		}
 	}
 
@@ -163,12 +169,6 @@ public class WebActivity extends Activity {
 		}
 	};
 
-	/**
-	 * 截取经纬度
-	 * 
-	 * @param loc
-	 * @return
-	 */
 	private String getLocation() {
 		// 获取定位服务
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -191,7 +191,7 @@ public class WebActivity extends Activity {
 			Location location = locationManager.getLastKnownLocation(provider);
 			if (location != null) {
 				// 获取当前位置，这里只用到了经纬度
-				longiandlati = "经度：" + location.getLongitude() + "\n纬度："
+				longiandlati = "经度：" + location.getLongitude() + "纬度："
 						+ location.getLatitude();
 			}
 			// 绑定定位事件，监听位置是否改变
@@ -243,23 +243,51 @@ public class WebActivity extends Activity {
 						e.printStackTrace();
 					}
 				}
+				// 获取定位服务
+				locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+				// 获取当前可用的位置控制器
+				List<String> list = locationManager.getProviders(true);
+				if (list.contains(LocationManager.GPS_PROVIDER)) {
+					// 是否为GPS位置控制器
+					provider = LocationManager.GPS_PROVIDER;
+				} else if (list.contains(LocationManager.NETWORK_PROVIDER)) {
+					// 是否为网络位置控制器
+					provider = LocationManager.NETWORK_PROVIDER;
+
+				} else {
+					Toast.makeText(WebActivity.this, "请检查网络或GPS是否打开",
+							Toast.LENGTH_SHORT).show();
+				}
+				Location location = locationManager
+						.getLastKnownLocation(provider);
+				if (location != null) {
+					// 获取当前位置，这里只用到了经纬度
+					longiandlati ="lo:"+location.getLongitude() + ",la:"
+							+ location.getLatitude();
+				}
+				// 绑定定位事件，监听位置是否改变
+				// 第一个参数为控制器类型第二个参数为监听位置变化的时间间隔（单位：毫秒）
+				// 第三个参数为位置变化的间隔（单位：米）第四个参数为位置监听器
+				locationManager.requestLocationUpdates(provider, 2000, 2,
+						locationListener);
 				Map<String, String> map = new HashMap<String, String>();
 				map.put("img", SAVE_PATH_IN_SDCARD);
 				map.put("type", type);
 				map.put("lcmc", bh);
-				res = httpPost("http://192.168.0.101/ts_qxgl/qxdl1/pic_testdb.jsp", map, 1);
-				 Log.i(">>>>>>>>>>>>>", "上传结果"+res);
-				 File f=new File(SAVE_PATH_IN_SDCARD);//上传成功后删除本地文件
-				 if(f.exists()) f.delete();
-				 getLocation();
-				 Toast.makeText(this, "上传成功", Toast.LENGTH_SHORT).show();
+				map.put("gps", longiandlati);
+				Log.i(">>>>>>>>>>>>>GPS",  longiandlati);
+				res = httpPost(ROOTURL + "/qxdl1/pic_testdb.jsp", map, 1);
+				Log.i(">>>>>>>>>>>>>", "上传结果" + res);
+				File f = new File(SAVE_PATH_IN_SDCARD);// 上传成功后删除本地文件
+				if (f.exists())
+					f.delete();
+				Toast.makeText(this, "上传成功", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
 
 	/** 从服务器获取数据 */
-	public String httpPost(String urlStr, Map<String, String> map,
-			int type) {
+	public String httpPost(String urlStr, Map<String, String> map, int type) {
 		HttpClient client = new DefaultHttpClient();
 		String txt = "";
 		try {
@@ -286,8 +314,9 @@ public class WebActivity extends Activity {
 				MultipartEntity mpEntity = new MultipartEntity(); // 文件传输
 				FileBody fileBody = new FileBody(file);
 				mpEntity.addPart("file", fileBody);
-				mpEntity.addPart("type",  new StringBody(map.get("type")));
-				mpEntity.addPart("lcmc",  new StringBody(map.get("lcmc")));
+				mpEntity.addPart("type", new StringBody(map.get("type")));
+				mpEntity.addPart("lcmc", new StringBody(map.get("lcmc")));
+				mpEntity.addPart("gps", new StringBody(map.get("gps")));
 				request.setEntity(mpEntity);
 			}
 			HttpResponse response = client.execute(request);
@@ -300,7 +329,7 @@ public class WebActivity extends Activity {
 			e.printStackTrace();
 			txt = "连接超时";
 		}
-		client.getConnectionManager().shutdown(); 
+		client.getConnectionManager().shutdown();
 		return txt;
 	}
 
