@@ -47,8 +47,8 @@ public class WebActivity extends Activity {
 	private WebView webView;
 	private String imgname;
 	String res = "1";
-//	private final static String ROOTURL = "http://192.168.1.103/ts_qxgl";
-	private final static String ROOTURL = "http://192.168.0.104/ts_qxgl";
+	private final static String ROOTURL = "http://192.168.1.103/ts_qxgl";
+//	private final static String ROOTURL = "http://192.168.0.104/ts_qxgl";
 	public static final String SDCARD_ROOT_PATH = android.os.Environment
 			.getExternalStorageDirectory().getAbsolutePath();// 路径
 	public static String SAVE_PATH_IN_SDCARD = "/bidata/"; // 图片及其他数据保存文件夹
@@ -129,8 +129,7 @@ public class WebActivity extends Activity {
 		// 在js中调用window.AndroidWebView.showInfoFromJs(name)，便会触发此方法。
 		public void showInfoFromJs(String name) {
 			if (name.indexOf(",") > 0) {
-				Toast.makeText(WebActivity.this, name, Toast.LENGTH_SHORT)
-						.show();
+				//Toast.makeText(WebActivity.this, name, Toast.LENGTH_SHORT).show();
 				bh = name.substring(0, name.indexOf(","));
 				type = name.substring(name.indexOf(",") + 1);
 				Log.i("页面传值", bh + "," + type);
